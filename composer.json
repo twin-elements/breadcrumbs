@@ -1,0 +1,27 @@
+{
+  "name": "twin-elements/breadcrumbs",
+  "type": "library",
+  "description": "Breadcrumbs",
+  "keywords": [
+    "breadcrumbs"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Wladysław Dudko",
+      "email": "wladyslaw@jellinek.pl"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "symfony/routing": "^4.4 || ^5.4",
+    "mhujer/breadcrumbs-bundle": "^1.5",
+    "symfony/translation-contracts": "^2.5",
+    "twin-elements/page-bundle": "^1.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "TwinElements\\Component\\Breadcrumbs\\": ""
+    }
+  }
+}
