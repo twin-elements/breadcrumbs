@@ -24,7 +24,7 @@ class Breadcrumbs
 
         $this->breadcrumbs->addItem(
             $this->translator->trans('translations.homepage', [], 'translations'),
-            $this->generator->generate('homepage')
+            $this->generator->generate('homepage', [], UrlGeneratorInterface::ABSOLUTE_PATH)
         );
     }
 
@@ -47,8 +47,11 @@ class Breadcrumbs
     private function generatePageUrl(Page $page)
     {
         return $page->getRoute() ?
-            $this->generator->generate($page->getRoute()) :
-            $this->generator->generate(PagePath::ROUTE, ['id' => $page->getId(), 'slug' => $page->getSlug()]);
+            $this->generator->generate($page->getRoute(),[],UrlGeneratorInterface::ABSOLUTE_PATH) :
+            $this->generator->generate(PagePath::ROUTE, [
+                'id' => $page->getId(),
+                'slug' => $page->getSlug()
+            ], UrlGeneratorInterface::ABSOLUTE_PATH);
     }
 
     /**
