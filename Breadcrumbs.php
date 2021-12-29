@@ -30,24 +30,16 @@ class Breadcrumbs
 
     /**
      * @param $page Page Page instance object for which you want generate breadcrumbs
-     * @param $isLast bool if true will generate url from request
      *
      * @return \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
      */
-    public function generatePageBreadcrumbs(Page $page, bool $isLast = true): \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
+    public function generatePageBreadcrumbs(Page $page): \WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs
     {
-        if ($isLast) {
-            $this->breadcrumbs->addItem($page->getTitle(), $this->generatePageUrl($page));
-        } else {
-            $this->breadcrumbs->prependItem($page->getTitle(), $this->generatePageUrl($page));
+        if($page->getParent()){
+            $this->generatePageBreadcrumbs($page->getParent());
         }
 
-        $parentPage = $page->getParent();
-
-        while ($parentPage && $parentPage->getId() !== 1) {
-            $this->breadcrumbs->prependItem($parentPage->getTitle(), $this->generatePageUrl($parentPage));
-            $parentPage = $parentPage->getParent();
-        }
+        $this->breadcrumbs->addItem($page->getTitle(), $this->generatePageUrl($page));
 
         return $this->breadcrumbs;
     }
