@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "php": "^7.1",
+    "php": "^7.1 || ^8.0",
     "symfony/routing": "^4.4 || ^5.4",
     "mhujer/breadcrumbs-bundle": "^1.5",
     "symfony/translation-contracts": "^2.5",
