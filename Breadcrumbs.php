@@ -39,7 +39,9 @@ class Breadcrumbs
             $this->generatePageBreadcrumbs($page->getParent());
         }
 
-        $this->breadcrumbs->addItem($page->getTitle(), $this->generatePageUrl($page));
+        if(!$page->isExcludeFromNav()){
+            $this->breadcrumbs->addItem($page->getTitle(), $this->generatePageUrl($page));
+        }
 
         return $this->breadcrumbs;
     }

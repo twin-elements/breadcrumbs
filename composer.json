@@ -17,7 +17,7 @@
     "symfony/routing": "^4.4 || ^5.4",
     "mhujer/breadcrumbs-bundle": "^1.5",
     "symfony/translation-contracts": "^2.5",
-    "twin-elements/page-bundle": "^1.7"
+    "twin-elements/page-bundle": "^1.11"
   },
   "autoload": {
     "psr-4": {
